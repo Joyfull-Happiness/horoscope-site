@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <form id="zodiac-form" aria-labelledby="zodiac-form-heading">
+      <h2 id="zodiac-form-heading">Zodiac Sign Form</h2>
+
+      <label for="sign">Choose your zodiac sign:</label>
+      <select id="sign" name="sign">
+        <option value="">--Select your sign--</option>
+        <option value="aries">Aries</option>
+        <option value="taurus">Taurus</option>
+        <option value="gemini">Gemini</option>
+        <option value="cancer">Cancer</option>
+        <option value="leo">Leo</option>
+        <option value="virgo">virgo</option>
+        <option value="libra">libra</option>
+        <option value="scorpio">sc</option>
+        <option value="sagittarius">Sagittarius</option>
+        <option value="capricorn">Capricorn</option>
+        <option value="aquarius">Aquarius</option>
+        <option value="pisces">Pisces</option>
+      </select>
+
+      <button type="submit" aria-label="Submit your sign">Submit</button>
+    </form>
+
+    <div class="result"></div>
     <script src="api.js"></script>
   </body>
 </html>
