@@ -27,7 +27,12 @@ input {
   border: 1px solid #bbb;
   font-size: 1rem;
 }
-
+#resetBtn {
+  display: none;
+}
+#submit {
+  margin: 2rem;
+}
 button {
   margin-top: 1rem;
   background-color: #508d8a;
@@ -46,11 +51,20 @@ button:hover {
 .result {
   margin-top: 1.5rem;
   font-size: 1.2rem;
-  color: #333;
+  color: #ffffff;
   max-width: 400px;
   padding: 1.5rem;
   border: 1px solid #ffffff;
   border-radius: 8px;
   background-color: #3b56eb;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+p {
+  font-size: larger;
+}
+
+img {
+  width: 50px;
+  height: auto;
 }

@@ -117,41 +117,63 @@ const horoscopeData = {
 // 📝 i'm making the variables form and output and connecting them to the form in html and the class suggestion.
 let form = document.querySelector("#zodiac-form");
 let output = document.querySelector(".suggestion");
-let submitBtn = document.getElementById("submitBtn");
+let submitBtn = document.getElementById("submit");
 let result = document.querySelector(".result");
+let resetBtn = document.getElementById("reset");
+console.log("submit", submitBtn);
 
 // 📝 setting up variables SLOW DOWN AND THINK ABOUT WHAT EVERYTHING IS DOING
 let yourZodiacSign = [];
-let zodiacPath = horoscopeData.horoscopes.astroSigns.sign;
+let zodiacPath = horoscopeData.horoscopes.astroSigns;
+// console.log("zodiacPath:", zodiacPath);
+
 let userZodiac = sign;
+// This is to hold space for the atribute imgSrc when i input them into the if/else statements in my function
+// we are taking the  src attributes and adding tot he image tags.
+
+let imgSrc = "";
+
+let img = document.createElement("img");
+img.src = imgSrc;
 
 form.addEventListener("submit", onFormSubmit);
 
-function onFormSubmit() {
+function onFormSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
   const dataObject = Object.fromEntries(data.entries());
   console.log("dataObject", dataObject);
-  form.reset();
-  showResult(dataObject);
+
+  showResult(dataObject); /* the key value pair is stored in the dataObject */
   console.log(dataObject);
+
+  // show it on form submit show the reset button";
+  resetBtn.style.display = "block";
 }
 
 // compare to the zodiacitem
-function showResult(data) {
-  for (let i = 0; i < zodiacPath.length; i++) {
-    let userZodiac = zodiacPath[i];
-
-    console.log("userZodiac:", zodiacPath.sign);
-    if (dataObject === zodiacItem) {
-      yourZodiacSign.push(icon);
-      yourZodiacSign.push(sign);
-      yourZodiacSign.push(dateRange);
-      yourZodiacSign.push(dailyHoroscope);
+function showResult(dataObject) {
+  for (let zodiacItem of zodiacPath) {
+    if (dataObject.sign === zodiacItem.sign) {
+      console.log("ZodiacItem:", zodiacItem.sign);
+      let paragraphImg = document.querySelector("img");
+      paragraphImg.src = zodiacItem.icon;
+      let paragraphSign = document.querySelector(".sign");
+      paragraphSign.textContent = `Your sign is ${zodiacItem.sign}.`;
+      let paragraphDate = document.querySelector(".dateRange");
+      paragraphDate.textContent = `The date range for ${zodiacItem.sign} is ${zodiacItem.dateRange}.`;
+      let paragraphHoro = document.querySelector(".horoscope");
+      paragraphHoro.textContent = `Your horoscope for today is ${zodiacItem.dailyHoroscope}.`;
     }
   }
-  console.log(data);
-  let paragraph = document.createElement("p");
-  paragraph.textContent = `Hi ${data.name}, your favorite color is ${data.color}.`;
-  result.appendChild(paragraph);
+}
+
+// add event listener (click on form submit connect to the reset button
+resetBtn.addEventListener("click", onReset);
+
+function onReset() {
+  // this function is reseting the form,
+  form.reset();
+
+  suggestion.style.disply = "none";
 }

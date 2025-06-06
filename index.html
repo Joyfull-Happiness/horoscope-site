@@ -9,28 +9,38 @@
   <body>
     <form id="zodiac-form" aria-labelledby="zodiac-form-heading">
       <h2 id="zodiac-form-heading">Zodiac Sign Form</h2>
-
+      <!-- key value pairs: key (name) and value (is choosing an option with the identifier 
+ of value within the slecet (identified by name). This will be stored in the dataObject in 
+ JS since we are only working with 1 only one object within the data object.) -->
       <label for="sign">Choose your zodiac sign:</label>
       <select id="sign" name="sign">
         <option value="">--Select your sign--</option>
-        <option value="aries">Aries</option>
-        <option value="taurus">Taurus</option>
-        <option value="gemini">Gemini</option>
-        <option value="cancer">Cancer</option>
-        <option value="leo">Leo</option>
-        <option value="virgo">virgo</option>
-        <option value="libra">libra</option>
+        <option value="Aries">Aries</option>
+        <option value="Taurus">Taurus</option>
+        <option value="Gemini">Gemini</option>
+        <option value="Cancer">Cancer</option>
+        <option value="Leo">Leo</option>
+        <option value="Virgo">Virgo</option>
+        <option value="Libra">Libra</option>
         <option value="scorpio">scorpio</option>
-        <option value="sagittarius">Sagittarius</option>
-        <option value="capricorn">Capricorn</option>
-        <option value="aquarius">Aquarius</option>
-        <option value="pisces">Pisces</option>
+        <option value="Sagittarius">Sagittarius</option>
+        <option value="Capricorn">Capricorn</option>
+        <option value="Aquarius">Aquarius</option>
+        <option value="Pisces">Pisces</option>
       </select>
 
-      <button type="submit" aria-label="Submit your sign">Submit</button>
+      <button id="submit" type="submit" aria-label="Submit your sign">
+        Submit
+      </button>
+      <button id="reset" type="reset" aria-label="Start Over">Reset</button>
     </form>
 
-    <div class="result"></div>
+    <div class="result display-none">
+      <img />
+      <p class="sign"></p>
+      <p class="dateRange"></p>
+      <p class="horoscope"></p>
+    </div>
     <script src="api.js"></script>
   </body>
 </html>
