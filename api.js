@@ -113,8 +113,7 @@ const horoscopeData = {
     ],
   },
 };
-
-// 📝 i'm making the variables form and output and connecting them to the form in html and the class suggestion.
+// 📝 below is the list of relevant variables necessary to store the relative HTML elements that will be needed in the following functions
 let form = document.querySelector("#zodiac-form");
 let output = document.querySelector(".suggestion");
 let submitBtn = document.getElementById("submit");
@@ -122,19 +121,10 @@ let result = document.querySelector(".result");
 let resetBtn = document.getElementById("reset");
 console.log("submit", submitBtn);
 
-// 📝 setting up variables SLOW DOWN AND THINK ABOUT WHAT EVERYTHING IS DOING
-let yourZodiacSign = [];
+// 📝 Here I'm setting up a variable to hold the dot notation that i will use later in the
+// showresults function
+// 📝 the userZodiac variable is holding the
 let zodiacPath = horoscopeData.horoscopes.astroSigns;
-// console.log("zodiacPath:", zodiacPath);
-
-let userZodiac = sign;
-// This is to hold space for the atribute imgSrc when i input them into the if/else statements in my function
-// we are taking the  src attributes and adding tot he image tags.
-
-let imgSrc = "";
-
-let img = document.createElement("img");
-img.src = imgSrc;
 
 form.addEventListener("submit", onFormSubmit);
 
