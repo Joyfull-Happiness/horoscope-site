@@ -115,40 +115,43 @@ const horoscopeData = {
 };
 
 // 📝 i'm making the variables form and output and connecting them to the form in html and the class suggestion.
-let form = document.querySelector(".zodiac-form");
+let form = document.querySelector("#zodiac-form");
 let output = document.querySelector(".suggestion");
 let submitBtn = document.getElementById("submitBtn");
 let result = document.querySelector(".result");
 
-// // 📝 This is to hold space for the atributes imgAlt and imgSrc when i input them into the if/else statements in my function
+// 📝 setting up variables SLOW DOWN AND THINK ABOUT WHAT EVERYTHING IS DOING
+let yourZodiacSign = [];
+let zodiacPath = horoscopeData.horoscopes.astroSigns.sign;
+let userZodiac = sign;
 
-// let imgAlt = "";
-// let imgSrc = "";
+form.addEventListener("submit", onFormSubmit);
 
-// // 📝 this creates teh h2 element and saves in it the variable message.
-
-// let message = document.createElement("h2");
-// message.textcontent = output;
-
-// // 📝  we are taking the alt and src attributes and adding tot he image tags.
-// let img = document.createElement("img");
-// img.alt = imgAlt;
-// img.src = imgSrc;
-
-// // this adds the paragrph element for the teplate literal that we are using for the user's input
-// let paragraph = document.createElement("p");
-
-form.addEventListener("submit", onSubmit);
-
-function onSubmit(event) {
+function onFormSubmit() {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target).entries());
+  const data = new FormData(event.target);
+  const dataObject = Object.fromEntries(data.entries());
+  console.log("dataObject", dataObject);
+  form.reset();
+  showResult(dataObject);
+  console.log(dataObject);
+}
+
+// compare to the zodiacitem
+function showResult(data) {
+  for (let i = 0; i < zodiacPath.length; i++) {
+    let userZodiac = zodiacPath[i];
+
+    console.log("userZodiac:", zodiacPath.sign);
+    if (dataObject === zodiacItem) {
+      yourZodiacSign.push(icon);
+      yourZodiacSign.push(sign);
+      yourZodiacSign.push(dateRange);
+      yourZodiacSign.push(dailyHoroscope);
+    }
+  }
   console.log(data);
-  let sign = data.sign;
-
-  output.appendChild(message);
-  output.appendChild(paragraph);
-  output.appendChild(img);
-
-  submitBtn.style.display = "none";
+  let paragraph = document.createElement("p");
+  paragraph.textContent = `Hi ${data.name}, your favorite color is ${data.color}.`;
+  result.appendChild(paragraph);
 }
