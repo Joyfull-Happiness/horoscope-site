@@ -126,8 +126,11 @@ console.log("submit", submitBtn);
 // 📝 the userZodiac variable is holding the
 let zodiacPath = horoscopeData.horoscopes.astroSigns;
 
+// // 📝  this is boilerplate code to add the event listener submit so that when the
+// form is filled out and the button is submitted it will activate teh function below
 form.addEventListener("submit", onFormSubmit);
 
+// 📝  this is more boilerplate code
 function onFormSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.target);
