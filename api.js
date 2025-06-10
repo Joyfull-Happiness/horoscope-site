@@ -144,13 +144,18 @@ function onFormSubmit(event) {
   resetBtn.style.display = "block";
 }
 
-// compare to the zodiacitem
+// 📝   below I am setting up the function to show the results of the data object with a conditional that is placed within a four loop. The four loop is creating a variable zodiacItem which contains the variables  zodiacPath.
+
+// 📝 I'm giving the conditional that if the sign that is chosen by the user or matches one of the signs within the array of objects contained within the variable zodiacItem then show the following.
+// 📝 show the connected html element using document.quereySelector and show the item details (from the array of objects)  in a template literal to the user using text content
+
 function showResult(dataObject) {
   for (let zodiacItem of zodiacPath) {
     if (dataObject.sign === zodiacItem.sign) {
       console.log("ZodiacItem:", zodiacItem.sign);
       let paragraphImg = document.querySelector("img");
-      paragraphImg.src = zodiacItem.icon;
+      paragraphImg.src = zodiafruitBtn.addEventListener("click", onClick);
+      cItem.icon;
       let paragraphSign = document.querySelector(".sign");
       paragraphSign.textContent = `Your sign is ${zodiacItem.sign}.`;
       let paragraphDate = document.querySelector(".dateRange");
