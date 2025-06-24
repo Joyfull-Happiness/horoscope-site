@@ -154,8 +154,7 @@ function showResult(dataObject) {
     if (dataObject.sign === zodiacItem.sign) {
       console.log("ZodiacItem:", zodiacItem.sign);
       let paragraphImg = document.querySelector("img");
-      paragraphImg.src = zodiafruitBtn.addEventListener("click", onClick);
-      cItem.icon;
+      paragraphImg.src = `${zodiacItem.icon}`;
       let paragraphSign = document.querySelector(".sign");
       paragraphSign.textContent = `Your sign is ${zodiacItem.sign}.`;
       let paragraphDate = document.querySelector(".dateRange");
